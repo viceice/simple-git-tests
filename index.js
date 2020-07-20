@@ -17,20 +17,16 @@ const base = "./git-test";
   await repo.checkout(["-b", "test", "master"]);
 
   let branch = await repo.branch();
-  console.assert(
-    branch.current === "test",
-    `Error: '${branch.current}' <> 'test'`
-  );
+  if (branch.current !== "test")
+    throw new Error(`Error: '${branch.current}' <> 'test'`);
 
   await repo.checkout("master");
 
   await repo.checkoutBranch("test2", "master");
 
   branch = await repo.branch();
-  console.assert(
-    branch.current === "test2",
-    `Error: '${branch.current}' <> 'test2'`
-  );
+  if (branch.current !== "test2")
+    throw new Error(`Error: '${branch.current}' <> 'test2'`);
 
   console.log("works");
 })().catch((e) => {
