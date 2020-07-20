@@ -33,4 +33,7 @@ const base = "./git-test";
   );
 
   console.log("works");
-})().catch(console.error);
+})().catch((e) => {
+  console.error(e);
+  process.exit(1);
+});
