@@ -1,0 +1,17 @@
+{
+  "name": "simple-git-tests",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/viceice/simple-git-tests.git",
+  "author": "Michael Kriese <michael.kriese@visualon.de>",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node ./index.js"
+  },
+  "dependencies": {
+    "fs-extra": "9.0.1",
+    "simple-git": "2.13.2"
+  }
+}
