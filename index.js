@@ -14,10 +14,23 @@ const base = "./git-test";
   await repo.add(["past_file"]);
   await repo.commit("past message");
 
-  await repo.checkoutBranch("test", "master");
+  await repo.checkout(["-b", "test", "master"]);
 
-  const branch = await repo.branch();
-  console.assert(branch.current === "test", `Error: '${branch.current}' <> 'test'`);
+  let branch = await repo.branch();
+  console.assert(
+    branch.current === "test",
+    `Error: '${branch.current}' <> 'test'`
+  );
+
+  await repo.checkout("master");
+
+  await repo.checkoutBranch("test2", "master");
+
+  branch = await repo.branch();
+  console.assert(
+    branch.current === "test2",
+    `Error: '${branch.current}' <> 'test2'`
+  );
 
   console.log("works");
 })().catch(console.error);
