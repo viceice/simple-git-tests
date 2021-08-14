@@ -13,6 +13,6 @@
   },
   "dependencies": {
     "fs-extra": "9.1.0",
-    "simple-git": "2.43.0"
+    "simple-git": "2.44.0"
   }
 }
