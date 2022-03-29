@@ -1,17 +1,4 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:base",
-    ":rebaseStalePrs",
-    ":automergeMinor",
-    ":masterIssue",
-    ":assignee(viceice)"
-  ],
-  "prCreation": "not-pending",
-  "packageRules": [
-    {
-      "updateTypes": ["major"],
-      "masterIssueApproval": true
-    }
-  ]
+  "extends": ["github>visualon:renovate-config"]
 }
