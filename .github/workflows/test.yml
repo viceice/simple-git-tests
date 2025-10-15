@@ -9,8 +9,7 @@ on:
 
 jobs:
   build:
-
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     strategy:
       matrix:
@@ -25,3 +24,16 @@ jobs:
         cache: yarn
     - run: yarn --frozen-lockfile
     - run: yarn start
+    
+  success:
+    needs:
+      - build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 1
+    if: always()
+    steps:
+      - name: Fail for failed or cancelled build
+        if: |
+          needs.build.result == 'failure' ||
+          needs.build.result == 'cancelled'
+        run: exit 1
