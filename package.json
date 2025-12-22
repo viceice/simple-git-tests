@@ -12,7 +12,7 @@
     "start:debug": "node --inspect-brk ./index.js"
   },
   "dependencies": {
-    "fs-extra": "11.3.2",
+    "fs-extra": "11.3.3",
     "simple-git": "3.30.0"
   }
 }
